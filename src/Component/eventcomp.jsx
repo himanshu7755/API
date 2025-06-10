@@ -1,15 +1,17 @@
 import React from 'react'
-// import Box1 from '../assets/EventImages/box1.png'
-// import Box2 from '../assets/EventImages/box2.png'
-// import Box3 from '../assets/EventImages/box3.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faClock, faCalendar } from '@fortawesome/free-solid-svg-icons'
 
-const eventcomp = ({event}) => {
-  const imageUrl = event.image?.[0] ||  'https://via.placeholder.com/450x300?text=No+Image'
+const eventcomp = ({ event }) => {
+  const images = [
+    event.images?.[0] || 'https://via.placeholder.com/150x100?text=Image+1',
+    event.images?.[1] || 'https://via.placeholder.com/150x100?text=Image+2',
+    event.images?.[2] || 'https://via.placeholder.com/150x100?text=Image+3',
+  ];
+
   return (
     <div className=' w-[450px] bg-white rounded-[20px]'>
-      <img className='rounded-t-[20px] object-cover' src={imageUrl} alt={event.event_name} />
+      <img className='rounded-t-[20px] object-cover h-[200px] w-full' src={images} alt={'hh'} />
       <div className='p-7 space-y-4 font-montserrat'>
         <p className='text-xl font-semibold text-center'>{event.event_name}</p>
 

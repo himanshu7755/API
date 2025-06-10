@@ -3,16 +3,26 @@ import axios from 'axios';
 import Eventcomp from '../Component/eventcomp';
 const Event = () => {
   const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(()=>{
+  useEffect(() => {
+    setIsLoading(true);
     axios.get('https://casselys.com/api/events?search=&per_page=10&page=1')
-    .then((res)=>{
-      setEvents(res.data.data);
-    })
-    .catch((err)=>{
-      console.log("API error", err)
-    })
+      .then((res) => {
+        setEvents(res.data.data);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log("API error", err)
+        setEvents([]);
+        setIsLoading(false);
+      })
   }, []);
+
+  if (isLoading)
+    return <div className='text-center py-32'>Loading Event....</div>
+  if (events.length === 0)
+    return <div className='text-center py-32'>No Event Found</div>
   return (
     <div className='bg-[#e8e8e8] min-h-screen py-32 px-40'>
       <div className='flex justify-between py-5'>
@@ -21,8 +31,8 @@ const Event = () => {
       </div>
 
       <div className=' flex gap-7'>
-        {events.map((index)=>(
-        <Eventcomp key={index.id} event={index}/>
+        {events.map((event) => (
+          <Eventcomp key={event.id} event={event} />
         ))}
       </div>
     </div>

@@ -1,12 +1,12 @@
 import React from 'react'
-import Box1 from '../assets/EventImages/box1.png'
-import Box2 from '../assets/EventImages/box2.png'
-import Box3 from '../assets/EventImages/box3.png'
+// import Box1 from '../assets/EventImages/box1.png'
+// import Box2 from '../assets/EventImages/box2.png'
+// import Box3 from '../assets/EventImages/box3.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLocationDot, faClock, faCalendar } from '@fortawesome/free-solid-svg-icons'
 
 const eventcomp = ({event}) => {
-  const imageUrl = event.image?.[0] ||  ""
+  const imageUrl = event.image?.[0] ||  ''
   return (
     <div className=' w-[450px] bg-white rounded-[20px]'>
       <img className='rounded-t-[20px] object-cover' src={imageUrl} alt={event.event_name} />

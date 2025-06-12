@@ -11,7 +11,7 @@ const eventcomp = ({ event }) => {
 
   return (
     <div className=' w-[450px] bg-white rounded-[20px]'>
-      <img className='rounded-t-[20px] object-cover h-[200px] w-full' src={images} alt={'hh'} />
+      <img className='rounded-t-[20px] object-cover h-[200px] w-full' src={images[0]} alt={'hh'} />
       <div className='p-7 space-y-4 font-montserrat'>
         <p className='text-xl font-semibold text-center'>{event.event_name}</p>
 
